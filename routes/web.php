@@ -15,11 +15,11 @@ Route::get('/', function () {
     ]);
 })->name('welcome');
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard', [
+Route::get('/loads', function () {
+    return Inertia::render('Loads/LoadsSearch', [
         'apiConfig' => config('api'),
     ]);
-})->name('dashboard');
+})->name('loads');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

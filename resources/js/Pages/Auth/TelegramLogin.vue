@@ -63,7 +63,7 @@ function createSession() {
              message.value = 'Успешная авторизация';
              show_message.value = true;
 
-             window.location = route('dashboard');
+             window.location = route('loads');
          }
      }).catch((error) => {
          console.error(error);
