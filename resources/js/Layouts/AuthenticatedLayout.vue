@@ -1,17 +1,41 @@
 <script setup>
-import { ref } from 'vue';
+import {inject, ref} from 'vue';
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
-import { Link } from '@inertiajs/vue3';
+import {Link} from '@inertiajs/vue3';
 
 const showingNavigationDropdown = ref(false);
+
+const store = inject('store');
+
+if (!store.isAuth) window.location = route('welcome');
+
+function logout() {
+    if (store.apiConfig) {
+        axios.post(`${store.apiConfig.api_server_url}/destroy-session`).then(response => {
+            console.log(response);
+            logoutClearStoreAndRedirect();
+        }).catch(err => {
+            console.error(err);
+            logoutClearStoreAndRedirect();
+        });
+    } else logoutClearStoreAndRedirect();
+}
+
+function logoutClearStoreAndRedirect() {
+    store.setSession(null);
+    store.setUser(null);
+    store.setSubscription(null);
+
+    window.location = route('welcome');
+}
 </script>
 
 <template>
-    <div>
+    <div v-if="store.isAuth">
         <div class="min-h-screen bg-gray-100">
             <nav class="bg-white border-b border-gray-100">
                 <!-- Primary Navigation Menu -->
@@ -45,7 +69,7 @@ const showingNavigationDropdown = ref(false);
                                                 type="button"
                                                 class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
                                             >
-                                                {{ $page.props.auth.user.name }}
+                                                {{ store.fullUsername }}
 
                                                 <svg
                                                     class="ms-2 -me-0.5 h-4 w-4"
@@ -64,9 +88,8 @@ const showingNavigationDropdown = ref(false);
                                     </template>
 
                                     <template #content>
-                                        <DropdownLink :href="route('profile.edit')"> Profile </DropdownLink>
-                                        <DropdownLink :href="route('logout')" method="post" as="button">
-                                            Log Out
+                                        <DropdownLink @click="logout" href="#" as="button">
+                                            Выход
                                         </DropdownLink>
                                     </template>
                                 </Dropdown>
@@ -121,15 +144,14 @@ const showingNavigationDropdown = ref(false);
                     <div class="pt-4 pb-1 border-t border-gray-200">
                         <div class="px-4">
                             <div class="font-medium text-base text-gray-800">
-                                {{ $page.props.auth.user.name }}
+                                {{ store.userFirstLastNames }}
                             </div>
-                            <div class="font-medium text-sm text-gray-500">{{ $page.props.auth.user.email }}</div>
+                            <div class="font-medium text-sm text-gray-500">{{ store.username }}</div>
                         </div>
 
                         <div class="mt-3 space-y-1">
-                            <ResponsiveNavLink :href="route('profile.edit')"> Profile </ResponsiveNavLink>
-                            <ResponsiveNavLink :href="route('logout')" method="post" as="button">
-                                Log Out
+                            <ResponsiveNavLink @click="logout" href="#" as="button">
+                                Выход
                             </ResponsiveNavLink>
                         </div>
                     </div>
@@ -139,13 +161,13 @@ const showingNavigationDropdown = ref(false);
             <!-- Page Heading -->
             <header class="bg-white shadow" v-if="$slots.header">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    <slot name="header" />
+                    <slot name="header"/>
                 </div>
             </header>
 
             <!-- Page Content -->
             <main>
-                <slot />
+                <slot/>
             </main>
         </div>
     </div>

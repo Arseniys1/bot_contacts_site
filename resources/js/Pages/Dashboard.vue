@@ -1,6 +1,22 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
+import {appStore} from "@/store.js";
+import {provide} from "vue";
+
+const props = defineProps({
+    apiConfig: {
+        type: Object,
+        required: true,
+    },
+});
+
+const store = appStore();
+store.init();
+store.setApiConfig(props.apiConfig);
+
+provide('store', store);
+
 </script>
 
 <template>

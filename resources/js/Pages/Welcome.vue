@@ -1,7 +1,10 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
+import TelegramLogin from "@/Pages/Auth/TelegramLogin.vue";
+import {provide} from "vue";
+import {appStore} from "@/store.js";
 
-defineProps({
+const props = defineProps({
     canLogin: {
         type: Boolean,
     },
@@ -16,7 +19,17 @@ defineProps({
         type: String,
         required: true,
     },
+    apiConfig: {
+        type: Object,
+        required: true,
+    },
 });
+
+const store = appStore();
+store.init();
+store.setApiConfig(props.apiConfig);
+
+provide('store', store);
 
 function handleImageError() {
     document.getElementById('screenshot-container')?.classList.add('!hidden');
@@ -52,9 +65,9 @@ function handleImageError() {
                             />
                         </svg>
                     </div>
-                    <nav v-if="canLogin" class="-mx-3 flex flex-1 justify-end">
+                    <nav class="-mx-3 flex flex-1 justify-end items-center flex-col">
                         <Link
-                            v-if="$page.props.auth.user"
+                            v-if="store.isAuth"
                             :href="route('dashboard')"
                             class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                         >
@@ -62,20 +75,7 @@ function handleImageError() {
                         </Link>
 
                         <template v-else>
-                            <Link
-                                :href="route('login')"
-                                class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                            >
-                                Log in
-                            </Link>
-
-                            <Link
-                                v-if="canRegister"
-                                :href="route('register')"
-                                class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                            >
-                                Register
-                            </Link>
+                            <TelegramLogin/>
                         </template>
                     </nav>
                 </header>
