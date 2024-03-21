@@ -80,7 +80,10 @@ function enabled_click(value) {
             <div class="grid grid-cols-3 gap-3">
                 <div class="col-span-2">
                     <label for="from" class="block text-sm font-medium leading-6 text-gray-900">Откуда</label>
-                    <input type="text" name="from" id="from" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <input type="text" name="from" id="from" list="from-list" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <datalist id="from-list">
+                        <option>Москва</option>
+                    </datalist>
                 </div>
                 <div>
                     <label for="from_radius" class="block text-sm font-medium leading-6 text-gray-900">Радиус</label>
@@ -94,7 +97,10 @@ function enabled_click(value) {
             <div class="grid grid-cols-3 gap-3">
                 <div class="col-span-2">
                     <label for="to" class="block text-sm font-medium leading-6 text-gray-900">Куда</label>
-                    <input type="text" name="to" id="to" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <input type="text" name="to" id="to" list="to-list" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <datalist id="to-list">
+                        <option>Москва</option>
+                    </datalist>
                 </div>
                 <div>
                     <label for="to_radius" class="block text-sm font-medium leading-6 text-gray-900">Радиус</label>
@@ -121,6 +127,23 @@ function enabled_click(value) {
                 <div class="col-span-2">
                     <label for="volume_to" class="block text-sm font-medium leading-6 text-gray-900">Объем, м3 до</label>
                     <input type="number" name="volume_to" id="volume_to" placeholder="до" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-6 mt-3 pt-3 gap-3 border-t-2 border-indigo-500">
+            <div class="col-span-6 md:col-span-1 grid grid-cols-1 gap-1">
+                <div class="col-span-1">
+                    <label for="date_from" class="block text-sm font-medium leading-6 text-gray-900">Дата погрузки с</label>
+                    <input type="date" name="date_from" id="date_from" placeholder="c" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+                <div class="col-span-1">
+                    <label for="date_to" class="block text-sm font-medium leading-6 text-gray-900">По</label>
+                    <input type="date" name="date_to" id="date_to" placeholder="по" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+            </div>
+            <div class="col-span-6 md:col-span-1 grid grid-cols-1 gap-1">
+                <div class="col-span-1">
                 </div>
             </div>
         </div>
