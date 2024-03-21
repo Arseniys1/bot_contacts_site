@@ -4,6 +4,14 @@ import {ref} from "vue";
 const enabled = ref(null);
 const enabled_previous = ref(null);
 
+const ellipse_max_route_length = ref(15);
+const ellipse_max_route_unity = ref('km');
+const ellipse_min_route_length = ref(30);
+const ellipse_min_route_unity = ref('km');
+
+const route_min_length = ref(150);
+const route_max_length = ref(3000);
+
 function enabled_click(value) {
     if (enabled_previous.value === value) enabled.value = null;
     enabled_previous.value = value;
@@ -13,139 +21,49 @@ function enabled_click(value) {
 
 <template>
     <div class="p-6">
-        <fieldset>
-            <div class="flex gap-x-3">
-                <div class="flex items-center gap-x-3">
-                    <input v-model="enabled" @click="enabled_click('ellipse_enabled')" id="ellipse_enabled" value="ellipse_enabled" name="push-notifications" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                    <label for="ellipse_enabled" class="block text-sm font-medium leading-6 text-gray-900">Искать грузы в «эллипсе» маршрута</label>
-                </div>
-                <div class="flex items-center gap-x-3">
-                    <input v-model="enabled" @click="enabled_click('route_length_enabled')" id="route_length_enabled" value="route_length_enabled" name="push-notifications" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                    <label for="route_length_enabled" class="block text-sm font-medium leading-6 text-gray-900">Длина маршрута</label>
-                </div>
-            </div>
-        </fieldset>
+        <div>
+            <a-radio-group v-model:value="enabled">
+                <a-radio @click="enabled_click('ellipse')" v-model="enabled" value="ellipse">Искать грузы в «эллипсе» маршрута</a-radio>
+                <a-radio @click="enabled_click('route')" v-model="enabled" value="route">Длина маршрута</a-radio>
+            </a-radio-group>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 mt-3 gap-3" v-if="enabled === 'ellipse_enabled'">
-            <div>
-                <p class="text-sm">Укажите, на сколько вы можете отклониться от желаемого маршрута и минимальное расстояние перевозки</p>
+            <div v-if="enabled === 'ellipse'" class="pt-3">
+                <a-form layout="inline">
+                    <a-form-item label="Максимальное увеличение пути">
+                        <a-input-number v-model:value="ellipse_max_route_length"/>
+                    </a-form-item>
+                    <a-form-item>
+                        <a-select v-model:value="ellipse_max_route_unity">
+                            <a-select-option value="km">км</a-select-option>
+                            <a-select-option value="%">%</a-select-option>
+                        </a-select>
+                    </a-form-item>
+                    <a-form-item label="Минимальное расстояние перевозки">
+                        <a-input-number v-model:value="ellipse_min_route_length"/>
+                    </a-form-item>
+                    <a-form-item>
+                        <a-select v-model:value="ellipse_min_route_unity">
+                            <a-select-option value="km">км</a-select-option>
+                            <a-select-option value="%">%</a-select-option>
+                        </a-select>
+                    </a-form-item>
+                </a-form>
             </div>
-            <div class="flex gap-3 items-center">
-                <p class="flex-1 w-32 text-xs"><b>Максимальное</b> увеличение пути</p>
-                <div class="flex-1 w-32">
-                    <input type="number" name="ellipse-max-route-length" id="ellipse-max-route-length" value="15" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                </div>
-                <div class="flex-1 w-32">
-                    <select id="ellipse-max-route-length-unity" name="ellipse-max-route-length-unity" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-                        <option>%</option>
-                        <option>км</option>
-                    </select>
-                </div>
-            </div>
-            <div class="flex gap-3 items-center">
-                <p class="flex-1 w-32 text-xs"><b>Минимальное</b> расстояние перевозки</p>
-                <div class="flex-1 w-32">
-                    <input type="number" name="ellipse-min-route-length" id="ellipse-min-route-length" value="30" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                </div>
-                <div class="flex-1 w-32">
-                    <select id="ellipse-min-route-length-unity" name="ellipse-min-route-length-unity" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-                        <option>%</option>
-                        <option>км</option>
-                    </select>
-                </div>
+
+            <div v-if="enabled === 'route'" class="pt-3">
+                <a-form layout="inline">
+                    <a-form-item label="Минимальное расстояние">
+                        <a-input-number v-model:value="route_min_length" addon-after="км"/>
+                    </a-form-item>
+                    <a-form-item label="Максимальное расстояние">
+                        <a-input-number v-model:value="route_max_length" addon-after="км"/>
+                    </a-form-item>
+                </a-form>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 mt-3 gap-3" v-if="enabled === 'route_length_enabled'">
-            <div>
-                <p class="text-sm">Укажите, в каких пределах должна находиться длина маршрута перевозки</p>
-            </div>
-            <div class="flex gap-3 items-start">
-                <p class="flex-1 w-32 text-xs"><b>Минимальное</b> расстояние</p>
-                <div class="flex-1 w-32">
-                    <label for="route-length-min" class="block text-sm font-medium leading-6 text-gray-900">км</label>
-                    <input type="number" name="route-length-min" id="route-length-min" value="150" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                </div>
-            </div>
-            <div class="flex gap-3 items-start">
-                <p class="flex-1 w-32 text-xs"><b>Максимальное</b> расстояние</p>
-                <div class="flex-1 w-32">
-                    <label for="route-length-max" class="block text-sm font-medium leading-6 text-gray-900">км</label>
-                    <input type="number" name="route-length-max" id="route-length-max" value="3000" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                </div>
-            </div>
-        </div>
+        <div class="pt-3">
 
-        <div class="grid grid-cols-1 md:grid-cols-3 mt-3 gap-3">
-            <div class="grid grid-cols-3 gap-3">
-                <div class="col-span-2">
-                    <label for="from" class="block text-sm font-medium leading-6 text-gray-900">Откуда</label>
-                    <input type="text" name="from" id="from" list="from-list" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                    <datalist id="from-list">
-                        <option>Москва</option>
-                    </datalist>
-                </div>
-                <div>
-                    <label for="from_radius" class="block text-sm font-medium leading-6 text-gray-900">Радиус</label>
-                    <input type="number" name="from_radius" id="from_radius" placeholder="км" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                </div>
-                <div class="col-span-3">
-                    <input id="from_exactly" name="from_exactly" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                    <label for="from_exactly" class="font-medium text-gray-900 ml-3">Точно по загрузке</label>
-                </div>
-            </div>
-            <div class="grid grid-cols-3 gap-3">
-                <div class="col-span-2">
-                    <label for="to" class="block text-sm font-medium leading-6 text-gray-900">Куда</label>
-                    <input type="text" name="to" id="to" list="to-list" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                    <datalist id="to-list">
-                        <option>Москва</option>
-                    </datalist>
-                </div>
-                <div>
-                    <label for="to_radius" class="block text-sm font-medium leading-6 text-gray-900">Радиус</label>
-                    <input type="number" name="to_radius" id="to_radius" placeholder="км" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                </div>
-                <div class="col-span-3">
-                    <input id="to_exactly" name="to_exactly" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                    <label for="to_exactly" class="font-medium text-gray-900 ml-3">Точно по разгрузке</label>
-                </div>
-            </div>
-            <div class="grid grid-cols-8 gap-3">
-                <div class="col-span-2">
-                    <label for="weight_from" class="block text-sm font-medium leading-6 text-gray-900">Вес, т от</label>
-                    <input type="number" name="weight_from" id="weight_from" placeholder="от" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                </div>
-                <div class="col-span-2">
-                    <label for="weight_to" class="block text-sm font-medium leading-6 text-gray-900">Вес, т до</label>
-                    <input type="number" name="weight_to" id="weight_to" placeholder="до" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                </div>
-                <div class="col-span-2">
-                    <label for="volume_from" class="block text-sm font-medium leading-6 text-gray-900">Объем, м3 от</label>
-                    <input type="number" name="volume_from" id="volume_from" placeholder="от" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                </div>
-                <div class="col-span-2">
-                    <label for="volume_to" class="block text-sm font-medium leading-6 text-gray-900">Объем, м3 до</label>
-                    <input type="number" name="volume_to" id="volume_to" placeholder="до" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                </div>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-6 mt-3 pt-3 gap-3 border-t-2 border-indigo-500">
-            <div class="col-span-6 md:col-span-1 grid grid-cols-1 gap-1">
-                <div class="col-span-1">
-                    <label for="date_from" class="block text-sm font-medium leading-6 text-gray-900">Дата погрузки с</label>
-                    <input type="date" name="date_from" id="date_from" placeholder="c" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                </div>
-                <div class="col-span-1">
-                    <label for="date_to" class="block text-sm font-medium leading-6 text-gray-900">По</label>
-                    <input type="date" name="date_to" id="date_to" placeholder="по" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                </div>
-            </div>
-            <div class="col-span-6 md:col-span-1 grid grid-cols-1 gap-1">
-                <div class="col-span-1">
-                </div>
-            </div>
         </div>
     </div>
 </template>
