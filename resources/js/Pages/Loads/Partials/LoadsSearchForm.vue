@@ -75,6 +75,55 @@ function enabled_click(value) {
                 </div>
             </div>
         </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 mt-3 gap-3">
+            <div class="grid grid-cols-3 gap-3">
+                <div class="col-span-2">
+                    <label for="from" class="block text-sm font-medium leading-6 text-gray-900">Откуда</label>
+                    <input type="text" name="from" id="from" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+                <div>
+                    <label for="from_radius" class="block text-sm font-medium leading-6 text-gray-900">Радиус</label>
+                    <input type="number" name="from_radius" id="from_radius" placeholder="км" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+                <div class="col-span-3">
+                    <input id="from_exactly" name="from_exactly" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                    <label for="from_exactly" class="font-medium text-gray-900 ml-3">Точно по загрузке</label>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 gap-3">
+                <div class="col-span-2">
+                    <label for="to" class="block text-sm font-medium leading-6 text-gray-900">Куда</label>
+                    <input type="text" name="to" id="to" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+                <div>
+                    <label for="to_radius" class="block text-sm font-medium leading-6 text-gray-900">Радиус</label>
+                    <input type="number" name="to_radius" id="to_radius" placeholder="км" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+                <div class="col-span-3">
+                    <input id="to_exactly" name="to_exactly" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                    <label for="to_exactly" class="font-medium text-gray-900 ml-3">Точно по разгрузке</label>
+                </div>
+            </div>
+            <div class="grid grid-cols-8 gap-3">
+                <div class="col-span-2">
+                    <label for="weight_from" class="block text-sm font-medium leading-6 text-gray-900">Вес, т от</label>
+                    <input type="number" name="weight_from" id="weight_from" placeholder="от" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+                <div class="col-span-2">
+                    <label for="weight_to" class="block text-sm font-medium leading-6 text-gray-900">Вес, т до</label>
+                    <input type="number" name="weight_to" id="weight_to" placeholder="до" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+                <div class="col-span-2">
+                    <label for="volume_from" class="block text-sm font-medium leading-6 text-gray-900">Объем, м3 от</label>
+                    <input type="number" name="volume_from" id="volume_from" placeholder="от" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+                <div class="col-span-2">
+                    <label for="volume_to" class="block text-sm font-medium leading-6 text-gray-900">Объем, м3 до</label>
+                    <input type="number" name="volume_to" id="volume_to" placeholder="до" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
