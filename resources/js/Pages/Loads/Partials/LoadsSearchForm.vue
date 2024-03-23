@@ -1,5 +1,5 @@
 <script setup>
-import {ref} from "vue";
+import {reactive, ref} from "vue";
 
 const enabled = ref(null);
 const enabled_previous = ref(null);
@@ -17,20 +17,117 @@ function enabled_click(value) {
     enabled_previous.value = value;
 }
 
+const value = ref('');
+const options = ref([]);
+const handleSearch = val => {
+    let res;
+    if (!val || val.indexOf('@') >= 0) {
+        res = [];
+    } else {
+        res = ['gmail.com', '163.com', 'qq.com'].map(domain => ({
+            value: `${val}@${domain}`,
+        }));
+    }
+    options.value = res;
+};
+
+const value_car_type = ref('lucy');
+const options_car_type = ref([
+    {
+        id: 'jack',
+        name: 'Jack',
+        children: [
+            {
+                id: 'small jack',
+                name: 'samll Jack',
+            },
+            {
+                id: 'small jack',
+                name: 'samll Jack',
+            },
+        ],
+    },
+    {
+        id: 'lucy',
+        name: 'Lucy',
+    },
+    {
+        id: 'disabled',
+        name: 'Disabled',
+        disabled: true,
+    },
+    {
+        id: 'yiminghe',
+        name: 'Yiminghe',
+    },
+]);
+
+const value_cargo_type = ref('lucy');
+const options_cargo_type = ref([
+    {
+        id: 'jack',
+        name: 'Jack',
+    },
+    {
+        id: 'lucy',
+        name: 'Lucy',
+    },
+    {
+        id: 'disabled',
+        name: 'Disabled',
+        disabled: true,
+    },
+    {
+        id: 'yiminghe',
+        name: 'Yiminghe',
+    },
+]);
+
+const value_load_type = ref('lucy');
+const options_load_type = ref([
+    {
+        id: 'jack',
+        name: 'Jack',
+    },
+    {
+        id: 'lucy',
+        name: 'Lucy',
+    },
+    {
+        id: 'disabled',
+        name: 'Disabled',
+        disabled: true,
+    },
+    {
+        id: 'yiminghe',
+        name: 'Yiminghe',
+    },
+]);
+
 </script>
 
 <template>
     <div class="p-6">
         <div>
             <a-radio-group v-model:value="enabled">
-                <a-radio @click="enabled_click('ellipse')" v-model="enabled" value="ellipse">Искать грузы в «эллипсе» маршрута</a-radio>
+                <a-radio @click="enabled_click('ellipse')" v-model="enabled" value="ellipse">Искать грузы в «эллипсе»
+                    маршрута
+                </a-radio>
                 <a-radio @click="enabled_click('route')" v-model="enabled" value="route">Длина маршрута</a-radio>
             </a-radio-group>
 
             <div v-if="enabled === 'ellipse'" class="pt-3">
-                <a-form layout="inline">
-                    <a-form-item label="Максимальное увеличение пути">
-                        <a-input-number v-model:value="ellipse_max_route_length"/>
+                <a-form layout="vertical" :label-col="{xs: 24, sm: 24, md: 24, lg: 8, xl: 8}" :wrapper-col="{xs: 24, sm: 24, md: 24, lg: 8, xl: 8}">
+                    <a-form-item>
+                        Укажите, на сколько вы можете отклониться
+                        от желаемого маршрута и минимальное расстояние перевозки
+                    </a-form-item>
+                    <a-form-item>
+                        <b>Максимальное</b>
+                        увеличение пути
+                    </a-form-item>
+                    <a-form-item>
+                        <a-input-number v-model:value="ellipse_max_route_length" style="width: 100%;"/>
                     </a-form-item>
                     <a-form-item>
                         <a-select v-model:value="ellipse_max_route_unity">
@@ -38,8 +135,12 @@ function enabled_click(value) {
                             <a-select-option value="%">%</a-select-option>
                         </a-select>
                     </a-form-item>
-                    <a-form-item label="Минимальное расстояние перевозки">
-                        <a-input-number v-model:value="ellipse_min_route_length"/>
+                    <a-form-item>
+                        <b>Минимальное</b>
+                        расстояние перевозки
+                    </a-form-item>
+                    <a-form-item>
+                        <a-input-number v-model:value="ellipse_min_route_length" style="width: 100%;"/>
                     </a-form-item>
                     <a-form-item>
                         <a-select v-model:value="ellipse_min_route_unity">
@@ -51,19 +152,324 @@ function enabled_click(value) {
             </div>
 
             <div v-if="enabled === 'route'" class="pt-3">
-                <a-form layout="inline">
-                    <a-form-item label="Минимальное расстояние">
-                        <a-input-number v-model:value="route_min_length" addon-after="км"/>
+                <a-form layout="vertical" :label-col="{xs: 24, sm: 24, md: 24, lg: 8, xl: 8}" :wrapper-col="{xs: 24, sm: 24, md: 24, lg: 8, xl: 8}">
+                    <a-form-item>
+                        Укажите, в каких пределах должна
+                        находиться длина маршрута перевозки
                     </a-form-item>
-                    <a-form-item label="Максимальное расстояние">
-                        <a-input-number v-model:value="route_max_length" addon-after="км"/>
+                    <a-form-item>
+                        <b>Минимальное</b>
+                        расстояние
+                    </a-form-item>
+                    <a-form-item>
+                        <a-input-number v-model:value="route_min_length" style="width: 100%;" addon-after="км"/>
+                    </a-form-item>
+                    <a-form-item>
+                        <b>Максимальное</b>
+                        расстояние
+                    </a-form-item>
+                    <a-form-item>
+                        <a-input-number v-model:value="route_max_length" style="width: 100%;" addon-after="км"/>
                     </a-form-item>
                 </a-form>
             </div>
         </div>
 
-        <div class="pt-3">
+        <div :class="enabled ? 'pt-8' : 'pt-3'">
+            <a-row :gutter="[8,16]">
+                <a-divider v-if="enabled"></a-divider>
+                <a-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+                    <a-form layout="vertical">
+                        <a-form-item label="Откуда">
+                            <a-auto-complete
+                                v-model:value="value"
+                                placeholder="Откуда"
+                                size="large"
+                                :options="options"
+                                @search="handleSearch"
+                            >
+                                <template #option="{ value: val }">
+                                    {{ val.split('@')[0] }} @
+                                    <span style="font-weight: bold">{{ val.split('@')[1] }}</span>
+                                </template>
+                            </a-auto-complete>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-input-number placeholder="Радиус" disabled style="width: 100%;" addon-after="км"/>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-select
+                                ref="select"
+                                v-model:value="value1"
+                                @focus="focus"
+                                @change="handleChange"
+                                placeholder="Выбрать список"
+                            >
+                                <a-select-option value="jack">Jack</a-select-option>
+                                <a-select-option value="lucy">Lucy</a-select-option>
+                                <a-select-option value="disabled" disabled>Disabled</a-select-option>
+                                <a-select-option value="Yiminghe">yiminghe</a-select-option>
+                            </a-select>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-checkbox>Точно по загрузке</a-checkbox>
+                        </a-form-item>
+                    </a-form>
+                </a-col>
+                <a-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+                    <a-form layout="vertical">
+                        <a-form-item label="Куда">
+                            <a-auto-complete
+                                v-model:value="value"
+                                placeholder="Куда"
+                                size="large"
+                                :options="options"
+                                @search="handleSearch"
+                            >
+                                <template #option="{ value: val }">
+                                    {{ val.split('@')[0] }} @
+                                    <span style="font-weight: bold">{{ val.split('@')[1] }}</span>
+                                </template>
+                            </a-auto-complete>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-input-number placeholder="Радиус" disabled style="width: 100%;" addon-after="км"/>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-select
+                                ref="select"
+                                v-model:value="value1"
+                                @focus="focus"
+                                @change="handleChange"
+                                placeholder="Выбрать список"
+                            >
+                                <a-select-option value="jack">Jack</a-select-option>
+                                <a-select-option value="lucy">Lucy</a-select-option>
+                                <a-select-option value="disabled" disabled>Disabled</a-select-option>
+                                <a-select-option value="Yiminghe">yiminghe</a-select-option>
+                            </a-select>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-checkbox>Точно по загрузке</a-checkbox>
+                        </a-form-item>
+                    </a-form>
+                </a-col>
+                <a-col :xs="24" :sm="24" :md="4" :lg="4" :xl="4">
+                    <a-form layout="vertical">
+                        <a-form-item label="Вес, т">
+                            <a-input-number placeholder="от" style="width: 100%;"/>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-input-number placeholder="до" style="width: 100%;"/>
+                        </a-form-item>
+                    </a-form>
+                </a-col>
+                <a-col :xs="24" :sm="24" :md="4" :lg="4" :xl="4">
+                    <a-form layout="vertical">
+                        <a-form-item label="Объем, м3">
+                            <a-input-number placeholder="от" style="width: 100%;"/>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-input-number placeholder="до" style="width: 100%;"/>
+                        </a-form-item>
+                    </a-form>
+                </a-col>
+                <a-divider></a-divider>
+                <a-col :xs="24" :sm="24" :md="4" :lg="4" :xl="4">
+                    <a-form layout="vertical">
+                        <a-form-item label="Дата погрузки">
+                            <a-date-picker v-model:value="value1" placeholder="с" style="width: 100%;"/>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-date-picker v-model:value="value1" placeholder="по" style="width: 100%;"/>
+                        </a-form-item>
+                    </a-form>
+                </a-col>
+                <a-col :xs="24" :sm="24" :md="4" :lg="4" :xl="4">
+                    <a-form layout="vertical">
+                        <a-form-item label="Тип кузова">
+                            <a-select
+                                ref="select"
+                                v-model:value="value_car_type"
+                                :options="options_car_type"
+                                :field-names="{ label: 'name', value: 'id', options: 'children' }"
+                                @focus="focus"
+                                @change="handleChange"
+                                mode="multiple"
+                            ></a-select>
+                        </a-form-item>
+                    </a-form>
+                </a-col>
+                <a-col :xs="24" :sm="24" :md="4" :lg="4" :xl="4">
+                    <a-form layout="vertical">
+                        <a-form-item label="Наименование груза">
+                            <a-select
+                                ref="select"
+                                v-model:value="value_cargo_type"
+                                :options="options_cargo_type"
+                                :field-names="{ label: 'name', value: 'id', options: 'children' }"
+                                @focus="focus"
+                                @change="handleChange"
+                                mode="multiple"
+                            ></a-select>
+                        </a-form-item>
+                    </a-form>
+                </a-col>
+                <a-col :xs="24" :sm="24" :md="4" :lg="4" :xl="4">
+                    <a-form layout="vertical">
+                        <a-form-item label="Тип загрузки">
+                            <a-select
+                                ref="select"
+                                v-model:value="value_load_type"
+                                :options="options_load_type"
+                                :field-names="{ label: 'name', value: 'id', options: 'children' }"
+                                @focus="focus"
+                                @change="handleChange"
+                                mode="multiple"
+                            ></a-select>
+                        </a-form-item>
+                    </a-form>
+                </a-col>
+                <a-col :xs="24" :sm="24" :md="4" :lg="4" :xl="4">
+                    <a-form layout="vertical">
+                        <a-form-item label="Оплата">
+                            <a-select
+                                ref="select"
+                                v-model:value="value_load_type"
+                                :options="options_load_type"
+                                :field-names="{ label: 'name', value: 'id', options: 'children' }"
+                                @focus="focus"
+                                @change="handleChange"
+                                mode="multiple"
+                            ></a-select>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-input-number placeholder="от" style="width: 100%;"/>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-select
+                                ref="select"
+                                v-model:value="value1"
+                                @focus="focus"
+                                @change="handleChange"
+                                placeholder="Выбрать список"
+                            >
+                                <a-select-option value="jack">Jack</a-select-option>
+                                <a-select-option value="lucy">Lucy</a-select-option>
+                                <a-select-option value="disabled" disabled>Disabled</a-select-option>
+                                <a-select-option value="Yiminghe">yiminghe</a-select-option>
+                            </a-select>
+                        </a-form-item>
+                    </a-form>
+                </a-col>
+                <a-col :xs="24" :sm="24" :md="4" :lg="4" :xl="4">
+                    <a-form layout="vertical">
+                        <a-form-item label="Доп параметры">
+                            <a-select
+                                ref="select"
+                                v-model:value="value_load_type"
+                                :options="options_load_type"
+                                :field-names="{ label: 'name', value: 'id', options: 'children' }"
+                                @focus="focus"
+                                @change="handleChange"
+                                mode="multiple"
+                            ></a-select>
+                        </a-form-item>
+                    </a-form>
+                </a-col>
+                <a-divider></a-divider>
+                <a-col :xs="24" :sm="24" :md="6" :lg="6" :xl="6">
+                    <a-form layout="vertical">
+                        <a-form-item label="Габариты и догруз">
+                            <a-checkbox v-model:checked="checked">Скрыть без габаритов</a-checkbox>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-input v-model:value="value" placeholder="Длина от" addon-after="м"/>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-input v-model:value="value" placeholder="Длина до" addon-after="м"/>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-input v-model:value="value" placeholder="Ширина от" addon-after="м"/>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-input v-model:value="value" placeholder="Ширина до" addon-after="м"/>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-input v-model:value="value" placeholder="Высота от" addon-after="м"/>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-input v-model:value="value" placeholder="Высота до" addon-after="м"/>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-select
+                                ref="select"
+                                v-model:value="value1"
+                                @focus="focus"
+                                @change="handleChange"
+                                placeholder="Догруз"
+                            >
+                                <a-select-option value="jack">Jack</a-select-option>
+                                <a-select-option value="lucy">Lucy</a-select-option>
+                                <a-select-option value="disabled" disabled>Disabled</a-select-option>
+                                <a-select-option value="Yiminghe">yiminghe</a-select-option>
+                            </a-select>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-input v-model:value="value" placeholder="Паллеты" addon-after="шт"/>
+                        </a-form-item>
+                    </a-form>
+                </a-col>
+                <a-col :xs="24" :sm="24" :md="6" :lg="6" :xl="6">
+                    <a-form layout="vertical">
+                        <a-form-item label="Торги">
+                            <a-checkbox v-model:checked="checked">Только с торгами</a-checkbox>
+                        </a-form-item>
+                    </a-form>
+                </a-col>
+                <a-col :xs="24" :sm="24" :md="6" :lg="6" :xl="6">
+                    <a-form layout="vertical">
+                        <a-form-item label="Поиск по фирмам">
+                            <a-select
+                                ref="select"
+                                v-model:value="value1"
+                                @focus="focus"
+                                @change="handleChange"
+                                placeholder="Любой балл участника"
+                            >
+                                <a-select-option value="jack">Jack</a-select-option>
+                                <a-select-option value="lucy">Lucy</a-select-option>
+                                <a-select-option value="disabled" disabled>Disabled</a-select-option>
+                                <a-select-option value="Yiminghe">yiminghe</a-select-option>
+                            </a-select>
+                        </a-form-item>
+                    </a-form>
+                </a-col>
+                <a-col :xs="24" :sm="24" :md="6" :lg="6" :xl="6">
+                    <a-form layout="vertical">
+                        <a-form-item label="Добавлены">
+                            <a-select
+                                ref="select"
+                                v-model:value="value1"
+                                @focus="focus"
+                                @change="handleChange"
+                                placeholder="Когда угодно"
+                            >
+                                <a-select-option value="jack">Jack</a-select-option>
+                                <a-select-option value="lucy">Lucy</a-select-option>
+                                <a-select-option value="disabled" disabled>Disabled</a-select-option>
+                                <a-select-option value="Yiminghe">yiminghe</a-select-option>
+                            </a-select>
+                        </a-form-item>
+                    </a-form>
+                </a-col>
+            </a-row>
+        </div>
 
+        <div class="pt-3">
+            <a-flex justify="flex-end">
+                <a-button type="primary" size="large">Найти грузы</a-button>
+            </a-flex>
         </div>
     </div>
 </template>
