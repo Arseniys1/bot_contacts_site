@@ -1,5 +1,9 @@
 <script setup>
 import {reactive, ref} from "vue";
+import dayjs from "dayjs";
+import ru_RU from "ant-design-vue/es/date-picker/locale/ru_RU";
+import car_types from "@/Data/CarTypes.json";
+import {car_types_data_transform, get_transformed_dict_item_by_id} from "@/DataTransform/DataTransform.js";
 
 const enabled = ref(null);
 const enabled_previous = ref(null);
@@ -11,6 +15,9 @@ const ellipse_min_route_unity = ref('km');
 
 const route_min_length = ref(150);
 const route_max_length = ref(3000);
+
+const date_from = ref(dayjs());
+const date_to = ref(null);
 
 function enabled_click(value) {
     if (enabled_previous.value === value) enabled.value = null;
@@ -31,36 +38,46 @@ const handleSearch = val => {
     options.value = res;
 };
 
-const value_car_type = ref('lucy');
-const options_car_type = ref([
-    {
-        id: 'jack',
-        name: 'Jack',
-        children: [
-            {
-                id: 'small jack',
-                name: 'samll Jack',
-            },
-            {
-                id: 'small jack',
-                name: 'samll Jack',
-            },
-        ],
-    },
-    {
-        id: 'lucy',
-        name: 'Lucy',
-    },
-    {
-        id: 'disabled',
-        name: 'Disabled',
-        disabled: true,
-    },
-    {
-        id: 'yiminghe',
-        name: 'Yiminghe',
-    },
-]);
+const value_car_type = ref([]);
+const options_car_type = ref(car_types_data_transform(car_types));
+const selected_parent_car_types = ref([]);
+
+function car_type_change(ids, selected_car_types) {
+    for (let selected_car_type of selected_car_types) {
+        if (selected_car_type.parent) {
+            if (!selected_parent_car_types.value.includes(selected_car_type.id)) {
+                selected_car_type = get_transformed_dict_item_by_id(selected_car_type.id, options_car_type.value);
+                selected_parent_car_types.value.push(selected_car_type.id);
+                for (let children of selected_car_type.children) {
+                    value_car_type.value.push(children.id);
+                }
+                for (let field of selected_car_type.fields) {
+                    value_car_type.value.push(field.id);
+                }
+            }
+        }
+    }
+
+    for (let selected_parent_car_type_id of selected_parent_car_types.value) {
+        let found = false;
+        for (let selected_car_type of selected_car_types) {
+            if (selected_car_type.id === selected_parent_car_type_id) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            let car_type = get_transformed_dict_item_by_id(selected_parent_car_type_id, options_car_type.value);
+            for (let children of car_type.children) {
+                value_car_type.value.splice(value_car_type.value.indexOf(children), 1);
+            }
+            for (let field of car_type.fields) {
+                value_car_type.value.splice(value_car_type.value.indexOf(field), 1);
+            }
+            selected_parent_car_types.value.splice(selected_parent_car_types.value.indexOf(selected_parent_car_type_id), 1);
+        }
+    }
+}
 
 const value_cargo_type = ref('lucy');
 const options_cargo_type = ref([
@@ -187,6 +204,7 @@ const options_load_type = ref([
                                 size="large"
                                 :options="options"
                                 @search="handleSearch"
+                                allow-clear
                             >
                                 <template #option="{ value: val }">
                                     {{ val.split('@')[0] }} @
@@ -225,6 +243,7 @@ const options_load_type = ref([
                                 size="large"
                                 :options="options"
                                 @search="handleSearch"
+                                allow-clear
                             >
                                 <template #option="{ value: val }">
                                     {{ val.split('@')[0] }} @
@@ -278,10 +297,10 @@ const options_load_type = ref([
                 <a-col :xs="24" :sm="24" :md="4" :lg="4" :xl="4">
                     <a-form layout="vertical">
                         <a-form-item label="Дата погрузки">
-                            <a-date-picker v-model:value="value1" placeholder="с" style="width: 100%;"/>
+                            <a-date-picker v-model:value="date_from" placeholder="с" :locale="ru_RU" style="width: 100%;"/>
                         </a-form-item>
                         <a-form-item>
-                            <a-date-picker v-model:value="value1" placeholder="по" style="width: 100%;"/>
+                            <a-date-picker v-model:value="date_to" placeholder="по" :locale="ru_RU" style="width: 100%;"/>
                         </a-form-item>
                     </a-form>
                 </a-col>
@@ -294,7 +313,7 @@ const options_load_type = ref([
                                 :options="options_car_type"
                                 :field-names="{ label: 'name', value: 'id', options: 'children' }"
                                 @focus="focus"
-                                @change="handleChange"
+                                @change="car_type_change"
                                 mode="multiple"
                             ></a-select>
                         </a-form-item>

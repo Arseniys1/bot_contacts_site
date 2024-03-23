@@ -1,0 +1,698 @@
+[
+    {
+        "dictionary_item_id": 100,
+        "attributes_dictionary": {
+            "car_type": "контейнер",
+            "short": "конт.",
+            "attribs": "4",
+            "mask": "2",
+            "base_type": "30000",
+            "type_order": "50"
+        }
+    },
+    {
+        "dictionary_item_id": 200,
+        "attributes_dictionary": {
+            "car_type": "тентованный",
+            "short": "тент.",
+            "attribs": "4",
+            "mask": "1",
+            "base_type": "30000",
+            "type_order": "20"
+        }
+    },
+    {
+        "dictionary_item_id": 300,
+        "attributes_dictionary": {
+            "car_type": "рефрижератор",
+            "short": "реф.",
+            "attribs": "5",
+            "mask": "4",
+            "base_type": "50000",
+            "type_order": "85"
+        }
+    },
+    {
+        "dictionary_item_id": 310,
+        "attributes_dictionary": {
+            "car_type": "реф. с перегородкой",
+            "short": "реф.с перег.",
+            "attribs": "5",
+            "mask": "281474976710656",
+            "base_type": "50000",
+            "type_order": "87"
+        }
+    },
+    {
+        "dictionary_item_id": 312,
+        "attributes_dictionary": {
+            "car_type": "реф. мультирежимный",
+            "short": "реф.мульт.",
+            "attribs": "5",
+            "mask": "562949953421312",
+            "base_type": "50000",
+            "type_order": "86"
+        }
+    },
+    {
+        "dictionary_item_id": 400,
+        "attributes_dictionary": {
+            "car_type": "изотермический",
+            "short": "изотерм",
+            "attribs": "7",
+            "mask": "8",
+            "base_type": "0",
+            "type_order": "75"
+        }
+    },
+    {
+        "dictionary_item_id": 500,
+        "attributes_dictionary": {
+            "car_type": "фургон",
+            "short": "фург.",
+            "attribs": "4",
+            "mask": "16",
+            "base_type": "30000",
+            "type_order": "60"
+        }
+    },
+    {
+        "dictionary_item_id": 600,
+        "attributes_dictionary": {
+            "car_type": "микроавтобус",
+            "short": "микр.",
+            "mask": "32",
+            "base_type": "0",
+            "type_order": "286"
+        }
+    },
+    {
+        "dictionary_item_id": 700,
+        "attributes_dictionary": {
+            "car_type": "цельнометалл.",
+            "short": "цмет.",
+            "mask": "64",
+            "base_type": "30000",
+            "type_order": "70"
+        }
+    },
+    {
+        "dictionary_item_id": 1100,
+        "attributes_dictionary": {
+            "car_type": "бортовой",
+            "short": "борт.",
+            "attribs": "12",
+            "mask": "128",
+            "base_type": "20000",
+            "type_order": "100"
+        }
+    },
+    {
+        "dictionary_item_id": 1150,
+        "attributes_dictionary": {
+            "short": "откр.конт.",
+            "car_type": "открытый конт.",
+            "attribs": "4",
+            "mask": "1024",
+            "base_type": "20000",
+            "type_order": "120"
+        }
+    },
+    {
+        "dictionary_item_id": 1170,
+        "attributes_dictionary": {
+            "short": "пикап",
+            "car_type": "пикап",
+            "attribs": "8",
+            "mask": "68719476736",
+            "base_type": "0",
+            "type_order": "295"
+        }
+    },
+    {
+        "dictionary_item_id": 1200,
+        "attributes_dictionary": {
+            "short": "ссвл.",
+            "car_type": "самосвал",
+            "attribs": "4",
+            "mask": "4096",
+            "base_type": "20000",
+            "type_order": "130"
+        }
+    },
+    {
+        "dictionary_item_id": 1250,
+        "attributes_dictionary": {
+            "short": "корм.",
+            "car_type": "кормовоз",
+            "attribs": "0",
+            "mask": "4194304",
+            "base_type": "0",
+            "type_order": "265"
+        }
+    },
+    {
+        "dictionary_item_id": 1280,
+        "attributes_dictionary": {
+            "short": "кони.",
+            "car_type": "коневоз",
+            "attribs": "0",
+            "mask": "137438953472",
+            "base_type": "0",
+            "type_order": "255"
+        }
+    },
+    {
+        "dictionary_item_id": 1300,
+        "attributes_dictionary": {
+            "short": "конт-воз",
+            "car_type": "контейнеровоз",
+            "attribs": "12",
+            "mask": "2097152",
+            "base_type": "0",
+            "type_order": "260"
+        }
+    },
+    {
+        "dictionary_item_id": 1350,
+        "attributes_dictionary": {
+            "short": "манип",
+            "car_type": "манипулятор",
+            "attribs": "8",
+            "mask": "256",
+            "base_type": "0",
+            "type_order": "283"
+        }
+    },
+    {
+        "dictionary_item_id": 1355,
+        "attributes_dictionary": {
+            "short": "безборт.",
+            "car_type": "площадка без бортов",
+            "attribs": "12",
+            "mask": "70368744177664",
+            "base_type": "20000",
+            "type_order": "123"
+        }
+    },
+    {
+        "dictionary_item_id": 1400,
+        "attributes_dictionary": {
+            "short": "шал.",
+            "car_type": "шаланда",
+            "attribs": "8",
+            "mask": "8192",
+            "base_type": "20000",
+            "type_order": "140"
+        }
+    },
+    {
+        "dictionary_item_id": 5000,
+        "attributes_dictionary": {
+            "short": "негаб.",
+            "car_type": "негабарит",
+            "attribs": "6",
+            "mask": "18726594281984",
+            "base_type": "0",
+            "type_order": "180"
+        }
+    },
+    {
+        "dictionary_item_id": 10000,
+        "attributes_dictionary": {
+            "short": "кран",
+            "car_type": "кран",
+            "attribs": "8",
+            "mask": "8388608",
+            "base_type": "0",
+            "type_order": "270"
+        }
+    },
+    {
+        "dictionary_item_id": 10100,
+        "attributes_dictionary": {
+            "short": "автт.",
+            "car_type": "автотранспортер",
+            "attribs": "8",
+            "mask": "131072",
+            "base_type": "0",
+            "type_order": "220"
+        }
+    },
+    {
+        "dictionary_item_id": 10200,
+        "attributes_dictionary": {
+            "car_type": "автоцистерна",
+            "short": "автоцист.",
+            "attribs": "4",
+            "mask": "8589934592",
+            "base_type": "0",
+            "type_order": "370"
+        }
+    },
+    {
+        "dictionary_item_id": 10300,
+        "attributes_dictionary": {
+            "car_type": "лесовоз",
+            "short": "лесв.",
+            "attribs": "8",
+            "base_type": "0",
+            "type_order": "280",
+            "mask": "16777216"
+        }
+    },
+    {
+        "dictionary_item_id": 10320,
+        "attributes_dictionary": {
+            "car_type": "панелевоз",
+            "short": "панв.",
+            "attribs": "12",
+            "base_type": "0",
+            "type_order": "294",
+            "mask": "2048"
+        }
+    },
+    {
+        "dictionary_item_id": 10330,
+        "attributes_dictionary": {
+            "car_type": "ломовоз",
+            "short": "лом.",
+            "attribs": "8",
+            "base_type": "0",
+            "type_order": "282",
+            "mask": "1125899906842624"
+        }
+    },
+    {
+        "dictionary_item_id": 10350,
+        "attributes_dictionary": {
+            "car_type": "трубовоз",
+            "short": "труб.",
+            "attribs": "12",
+            "base_type": "0",
+            "type_order": "350",
+            "mask": "1073741824"
+        }
+    },
+    {
+        "dictionary_item_id": 10400,
+        "attributes_dictionary": {
+            "car_type": "седельный тягач",
+            "short": "тягач",
+            "attribs": "8",
+            "base_type": "0",
+            "type_order": "310",
+            "mask": "67108864"
+        }
+    },
+    {
+        "dictionary_item_id": 10500,
+        "attributes_dictionary": {
+            "car_type": "низкорамный",
+            "short": "рамн.",
+            "attribs": "8",
+            "base_type": "5000",
+            "type_order": "185",
+            "mask": "512"
+        }
+    },
+    {
+        "dictionary_item_id": 10550,
+        "attributes_dictionary": {
+            "short": "нпл.",
+            "car_type": "низкорам.платф.",
+            "attribs": "8",
+            "base_type": "5000",
+            "type_order": "190",
+            "mask": "34359738368"
+        }
+    },
+    {
+        "dictionary_item_id": 10570,
+        "attributes_dictionary": {
+            "short": "телскп.",
+            "car_type": "телескопический",
+            "attribs": "8",
+            "base_type": "5000",
+            "type_order": "195",
+            "mask": "1099511627776"
+        }
+    },
+    {
+        "dictionary_item_id": 10600,
+        "attributes_dictionary": {
+            "short": "газ.",
+            "car_type": "газовоз",
+            "attribs": "1",
+            "base_type": "0",
+            "type_order": "240",
+            "mask": "524288"
+        }
+    },
+    {
+        "dictionary_item_id": 10700,
+        "attributes_dictionary": {
+            "short": "трал",
+            "car_type": "трал",
+            "attribs": "8",
+            "base_type": "5000",
+            "type_order": "200",
+            "mask": "536870912"
+        }
+    },
+    {
+        "dictionary_item_id": 10800,
+        "attributes_dictionary": {
+            "short": "авт.",
+            "car_type": "автобус",
+            "attribs": "4",
+            "base_type": "0",
+            "type_order": "205",
+            "mask": "16384"
+        }
+    },
+    {
+        "dictionary_item_id": 10900,
+        "attributes_dictionary": {
+            "short": "скот.",
+            "car_type": "скотовоз",
+            "base_type": "0",
+            "type_order": "320",
+            "mask": "134217728"
+        }
+    },
+    {
+        "dictionary_item_id": 10950,
+        "attributes_dictionary": {
+            "short": "сткл.",
+            "car_type": "стекловоз",
+            "base_type": "0",
+            "type_order": "330",
+            "mask": "268435456"
+        }
+    },
+    {
+        "dictionary_item_id": 20000,
+        "attributes_dictionary": {
+            "short": "откр.",
+            "car_type": "все открытые",
+            "attribs": "6",
+            "base_type": "0",
+            "type_order": "90",
+            "mask": "70368744191104"
+        }
+    },
+    {
+        "dictionary_item_id": 20100,
+        "attributes_dictionary": {
+            "short": "цем.",
+            "car_type": "цементовоз",
+            "base_type": "0",
+            "type_order": "360",
+            "mask": "2147483648"
+        }
+    },
+    {
+        "dictionary_item_id": 20150,
+        "attributes_dictionary": {
+            "short": "щеп.",
+            "car_type": "щеповоз",
+            "attribs": "0",
+            "base_type": "0",
+            "type_order": "375",
+            "mask": "4294967296"
+        }
+    },
+    {
+        "dictionary_item_id": 20200,
+        "attributes_dictionary": {
+            "short": "мук.",
+            "car_type": "муковоз",
+            "base_type": "0",
+            "type_order": "290",
+            "mask": "33554432"
+        }
+    },
+    {
+        "dictionary_item_id": 20300,
+        "attributes_dictionary": {
+            "short": "автв.",
+            "car_type": "автовоз",
+            "attribs": "8",
+            "base_type": "0",
+            "type_order": "210",
+            "mask": "32768"
+        }
+    },
+    {
+        "dictionary_item_id": 20350,
+        "attributes_dictionary": {
+            "short": "вышк.",
+            "car_type": "автовышка",
+            "attribs": "8",
+            "base_type": "0",
+            "type_order": "215",
+            "mask": "65536"
+        }
+    },
+    {
+        "dictionary_item_id": 20500,
+        "attributes_dictionary": {
+            "short": "бет.",
+            "car_type": "бетоновоз",
+            "base_type": "0",
+            "type_order": "230",
+            "mask": "262144"
+        }
+    },
+    {
+        "dictionary_item_id": 20550,
+        "attributes_dictionary": {
+            "short": "битум",
+            "car_type": "битумовоз",
+            "attribs": "0",
+            "base_type": "0",
+            "type_order": "232",
+            "mask": "2199023255552"
+        }
+    },
+    {
+        "dictionary_item_id": 20560,
+        "attributes_dictionary": {
+            "short": "балк.",
+            "car_type": "балковоз(негабарит)",
+            "attribs": "8",
+            "base_type": "5000",
+            "type_order": "203",
+            "mask": "17592186044416"
+        }
+    },
+    {
+        "dictionary_item_id": 20600,
+        "attributes_dictionary": {
+            "short": "эвак.",
+            "car_type": "эвакуатор",
+            "type_order": "400",
+            "attribs": "8",
+            "base_type": "0",
+            "mask": "17179869184"
+        }
+    },
+    {
+        "dictionary_item_id": 20700,
+        "attributes_dictionary": {
+            "short": "бенз.",
+            "car_type": "бензовоз",
+            "type_order": "235",
+            "attribs": "4",
+            "base_type": "0",
+            "mask": "274877906944"
+        }
+    },
+    {
+        "dictionary_item_id": 20750,
+        "attributes_dictionary": {
+            "car_type": "вездеход",
+            "short": "вздхд.",
+            "type_order": "237",
+            "attribs": "0",
+            "base_type": "0",
+            "mask": "549755813888"
+        }
+    },
+    {
+        "dictionary_item_id": 20800,
+        "attributes_dictionary": {
+            "car_type": "реф.-тушевоз",
+            "short": "р-туш.",
+            "type_order": "89",
+            "attribs": "5",
+            "base_type": "0",
+            "mask": "4398046511104"
+        }
+    },
+    {
+        "dictionary_item_id": 20850,
+        "attributes_dictionary": {
+            "car_type": "пирамида",
+            "short": "пирам.",
+            "type_order": "297",
+            "attribs": "8",
+            "base_type": "0",
+            "mask": "8796093022208"
+        }
+    },
+    {
+        "dictionary_item_id": 20860,
+        "attributes_dictionary": {
+            "car_type": "пухтовоз",
+            "short": "пухта",
+            "type_order": "296",
+            "attribs": "8",
+            "base_type": "0",
+            "mask": "140737488355328"
+        }
+    },
+    {
+        "dictionary_item_id": 20870,
+        "attributes_dictionary": {
+            "car_type": "рулоновоз",
+            "short": "рул.",
+            "type_order": "300",
+            "attribs": "8",
+            "base_type": "0",
+            "mask": "35184372088832"
+        }
+    },
+    {
+        "dictionary_item_id": 30000,
+        "attributes_dictionary": {
+            "car_type": "все закр.+изотерм",
+            "short": "закр.+терм.",
+            "type_order": "10",
+            "attribs": "6",
+            "base_type": "0",
+            "mask": "91"
+        }
+    },
+    {
+        "dictionary_item_id": 40000,
+        "attributes_dictionary": {
+            "car_type": "зерновоз",
+            "short": "зерн.",
+            "type_order": "250",
+            "base_type": "0",
+            "mask": "1048576"
+        }
+    },
+    {
+        "dictionary_item_id": 50000,
+        "attributes_dictionary": {
+            "car_type": "реф.+изотерм",
+            "short": "реф.+терм.",
+            "type_order": "80",
+            "attribs": "6",
+            "base_type": "0",
+            "mask": "844424930131980"
+        }
+    },
+    {
+        "dictionary_item_id": 55000,
+        "attributes_dictionary": {
+            "short": "грузпас.",
+            "car_type": "грузопассажирский",
+            "type_order": "410",
+            "attribs": "0",
+            "base_type": "0",
+            "mask": "2251799813685248"
+        }
+    },
+    {
+        "dictionary_item_id": 55500,
+        "attributes_dictionary": {
+            "short": "клюшк.",
+            "car_type": "клюшковоз",
+            "type_order": "420",
+            "attribs": "0",
+            "base_type": "0",
+            "mask": "4503599627370496"
+        }
+    },
+    {
+        "dictionary_item_id": 56000,
+        "attributes_dictionary": {
+            "short": "мусор.",
+            "car_type": "мусоровоз",
+            "type_order": "430",
+            "attribs": "0",
+            "base_type": "0",
+            "mask": "9007199254740992"
+        }
+    },
+    {
+        "dictionary_item_id": 56500,
+        "attributes_dictionary": {
+            "short": "jumbo",
+            "car_type": "jumbo",
+            "type_order": "440",
+            "attribs": "0",
+            "base_type": "0",
+            "mask": "18014398509481984"
+        }
+    },
+    {
+        "dictionary_item_id": 57000,
+        "attributes_dictionary": {
+            "short": "20' танк-конт.",
+            "car_type": "20' танк-контейнер",
+            "type_order": "450",
+            "attribs": "0",
+            "base_type": "0",
+            "mask": "36028797018963968"
+        }
+    },
+    {
+        "dictionary_item_id": 57500,
+        "attributes_dictionary": {
+            "short": "40' танк-конт.",
+            "car_type": "40' танк-контейнер",
+            "type_order": "460",
+            "attribs": "0",
+            "base_type": "0",
+            "mask": "72057594037927936"
+        }
+    },
+    {
+        "dictionary_item_id": 58000,
+        "attributes_dictionary": {
+            "short": "мега",
+            "car_type": "мега фура",
+            "type_order": "470",
+            "attribs": "0",
+            "base_type": "0",
+            "mask": "144115188075855872"
+        }
+    },
+    {
+        "dictionary_item_id": 58500,
+        "attributes_dictionary": {
+            "short": "допельшток",
+            "car_type": "допельшток",
+            "type_order": "480",
+            "attribs": "0",
+            "base_type": "0",
+            "mask": "288230376151711744"
+        }
+    },
+    {
+        "dictionary_item_id": 59000,
+        "attributes_dictionary": {
+            "short": "Раздв. полу. 20'/40'",
+            "car_type": "Раздвижной полуприцеп 20'/40'",
+            "type_order": "490",
+            "attribs": "0",
+            "base_type": "0",
+            "mask": "576460752303423488"
+        }
+    }
+]
