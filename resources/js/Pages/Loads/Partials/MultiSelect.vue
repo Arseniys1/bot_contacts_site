@@ -10,7 +10,7 @@ const props = defineProps({
     parent_options: {
         type: Array,
         default: [],
-    }
+    },
 });
 
 const filed_names = reactive({ label: 'name', value: 'id', options: 'children' });
