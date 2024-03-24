@@ -1,5 +1,5 @@
 <script setup>
-import {reactive, ref} from "vue";
+import {ref} from "vue";
 import dayjs from "dayjs";
 import ru_RU from "ant-design-vue/es/date-picker/locale/ru_RU";
 import car_types from "@/Data/CarTypes.json";
@@ -49,14 +49,21 @@ function car_type_change(ids, selected_car_types) {
                 selected_car_type = get_transformed_dict_item_by_id(selected_car_type.id, options_car_type.value);
                 selected_parent_car_types.value.push(selected_car_type.id);
                 for (let children of selected_car_type.children) {
-                    value_car_type.value.push(children.id);
+                    if (!value_car_type.value.includes(children.id)) {
+                        value_car_type.value.push(children.id);
+                    }
                 }
                 for (let field of selected_car_type.fields) {
-                    value_car_type.value.push(field.id);
+                    if (!value_car_type.value.includes(field.id)) {
+                        value_car_type.value.push(field.id);
+                    }
                 }
             }
         }
     }
+
+    const fields_intersect = selected_parent_car_types.value.includes(1) &&
+        selected_parent_car_types.value.includes(2);
 
     for (let selected_parent_car_type_id of selected_parent_car_types.value) {
         let found = false;
@@ -69,12 +76,33 @@ function car_type_change(ids, selected_car_types) {
         if (!found) {
             let car_type = get_transformed_dict_item_by_id(selected_parent_car_type_id, options_car_type.value);
             for (let children of car_type.children) {
-                value_car_type.value.splice(value_car_type.value.indexOf(children), 1);
+                let idx = value_car_type.value.indexOf(children.id)
+                if (idx !== -1) value_car_type.value.splice(idx, 1);
             }
-            for (let field of car_type.fields) {
-                value_car_type.value.splice(value_car_type.value.indexOf(field), 1);
+            if ((!fields_intersect && (selected_parent_car_type_id === 1 || selected_parent_car_type_id === 2)) || (selected_parent_car_type_id !== 1 && selected_parent_car_type_id !== 2)) {
+                for (let field of car_type.fields) {
+                    let idx = value_car_type.value.indexOf(field.id)
+                    if (idx !== -1) value_car_type.value.splice(idx, 1);
+                }
             }
             selected_parent_car_types.value.splice(selected_parent_car_types.value.indexOf(selected_parent_car_type_id), 1);
+        }
+    }
+
+    for (let selected_car_type of selected_car_types) {
+        let delete_parent = false;
+        if (selected_car_type.parent) {
+            selected_car_type = get_transformed_dict_item_by_id(selected_car_type.id, options_car_type.value);
+            for (let children of selected_car_type.children) {
+                if (value_car_type.value.indexOf(children.id) === -1) delete_parent = true;
+            }
+            for (let field of selected_car_type.fields) {
+                if (value_car_type.value.indexOf(field.id) === -1) delete_parent = true;
+            }
+            if (delete_parent) {
+                selected_parent_car_types.value.splice(selected_parent_car_types.value.indexOf(selected_car_type.id), 1);
+                value_car_type.value.splice(value_car_type.value.indexOf(selected_car_type.id), 1);
+            }
         }
     }
 }
