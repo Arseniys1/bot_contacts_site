@@ -6,24 +6,28 @@ const car_types_parents = [
         name: "все закр.+изотерм",
         children_ids: [200, 100, 500, 700],
         field_ids: [400],
+        after_item_ids: [400],
     },
     {
         id: 2,
         name: "реф.+изотерм",
         children_ids: [300, 310, 312],
         field_ids: [400],
+        after_item_ids: [],
     },
     {
         id: 3,
         name: "все открытые",
         children_ids: [1100, 1150, 1200, 1400, 1355],
         field_ids: [],
+        after_item_ids: [],
     },
     {
         id: 4,
         name: "негабарит",
         children_ids: [10500, 10700, 10550, 10570, 20560],
         field_ids: [],
+        after_item_ids: [],
     },
 ];
 
@@ -45,6 +49,7 @@ function create_dict_item(id, name, parent = false, children = null, fields = nu
 function data_transform(dict_items, dict_items_parents, name_key) {
     let new_dict_items = [];
     let skip_dict_item_ids = [];
+    let skip_after_item_ids = [];
 
     for (let dict_item_parent of dict_items_parents) {
         let new_dict_item = create_dict_item(dict_item_parent.id, dict_item_parent.name, true, [], []);
@@ -66,12 +71,22 @@ function data_transform(dict_items, dict_items_parents, name_key) {
                 }
             }
         }
+
         new_dict_items.push(new_dict_item);
+
+        for (let after_item_id of dict_item_parent.after_item_ids) {
+            for (let dict_item of dict_items) {
+                if (dict_item.dictionary_item_id === after_item_id) {
+                    new_dict_items.push(create_dict_item(dict_item.dictionary_item_id, dict_item.attributes_dictionary[name_key]));
+                    skip_after_item_ids.push(dict_item.dictionary_item_id);
+                }
+            }
+        }
     }
 
-    for (let car_type of dict_items) {
-        if (!skip_dict_item_ids.includes(car_type.dictionary_item_id))
-            new_dict_items.push(create_dict_item(car_type.dictionary_item_id, car_type.attributes_dictionary[name_key]));
+    for (let dict_item of dict_items) {
+        if (!skip_dict_item_ids.includes(dict_item.dictionary_item_id) && !skip_after_item_ids.includes(dict_item.dictionary_item_id))
+            new_dict_items.push(create_dict_item(dict_item.dictionary_item_id, dict_item.attributes_dictionary[name_key]));
     }
 
     return new_dict_items;
