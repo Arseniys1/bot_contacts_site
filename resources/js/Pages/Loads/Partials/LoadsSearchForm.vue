@@ -269,7 +269,7 @@ const options_load_type = ref([
                 <a-col :xs="24" :sm="24" :md="4" :lg="4" :xl="4">
                     <a-form layout="vertical">
                         <a-form-item label="Тип кузова">
-                            <MultiSelect :options="options_car_type" :parent_options="car_types_parents"/>
+                            <MultiSelect :options="options_car_type" :parent_options="car_types_parents" placeholder="Тип кузова"/>
                         </a-form-item>
                     </a-form>
                 </a-col>

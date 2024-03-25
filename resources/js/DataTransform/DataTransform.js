@@ -2,28 +2,28 @@
 
 const car_types_parents = [
     {
-        id: 1,
+        id: 30000,
         name: "все закр.+изотерм",
         children_ids: [200, 100, 500, 700],
         field_ids: [400],
         after_item_ids: [400],
     },
     {
-        id: 2,
+        id: 50000,
         name: "реф.+изотерм",
         children_ids: [300, 310, 312],
         field_ids: [400],
         after_item_ids: [],
     },
     {
-        id: 3,
+        id: 20000,
         name: "все открытые",
         children_ids: [1100, 1150, 1200, 1400, 1355],
         field_ids: [],
         after_item_ids: [],
     },
     {
-        id: 4,
+        id: 5000,
         name: "негабарит",
         children_ids: [10500, 10700, 10550, 10570, 20560],
         field_ids: [],
@@ -54,6 +54,7 @@ function data_transform(dict_items, dict_items_parents, name_key) {
     for (let dict_item_parent of dict_items_parents) {
         let new_dict_item = create_dict_item(dict_item_parent.id, dict_item_parent.name, true, [], []);
         new_dict_item.children.push(create_dict_item(dict_item_parent.id, dict_item_parent.name, true));
+        skip_dict_item_ids.push(dict_item_parent.id);
 
         for (let children_id of dict_item_parent.children_ids) {
             for (let dict_item of dict_items) {
