@@ -50,12 +50,16 @@ const handleSearch = val => {
     options.value = res;
 };
 
+
+
 const options_car_type = ref(car_types_data_transform(car_types));
 const options_pay_type = ref(pay_types_data_transform(pay_types));
 const options_cargo_type = ref(cargo_types_data_transform(cargo_types));
 const options_loading_type = ref(loading_types_data_transform(loading_types));
 const options_extra_type = ref(extra_types_data_transform(extra_types));
 const options_currency_type = ref(currency_types_data_transform(currency_types));
+
+const rate_pay_extra = ref(8);
 
 const value_cargo_type = ref('lucy');
 // const options_cargo_type = ref([
@@ -285,7 +289,7 @@ const options_load_type = ref([
                 <a-col :xs="24" :sm="24" :md="4" :lg="4" :xl="4">
                     <a-form layout="vertical">
                         <a-form-item label="Тип кузова">
-                            <MultiSelect :options="options_car_type" :parent_options="car_types_parents" placeholder="Тип кузова"/>
+                            <MultiSelect :options="options_car_type" :parent_options="car_types_parents" @change="(selected) => console.log(selected)" placeholder="Тип кузова"/>
                         </a-form-item>
                     </a-form>
                 </a-col>
@@ -314,7 +318,7 @@ const options_load_type = ref([
                         <a-form-item>
                             <a-select
                                 ref="select"
-                                v-model:value="value1"
+                                v-model:value="rate_pay_extra"
                             >
                                 <a-select-option v-for="option_currency of options_currency_type" :value="option_currency.id">{{ option_currency.name }}</a-select-option>
                             </a-select>

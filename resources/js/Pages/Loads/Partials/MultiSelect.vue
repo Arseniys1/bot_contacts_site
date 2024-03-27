@@ -21,6 +21,8 @@ const props = defineProps({
     }
 });
 
+const emit = defineEmits(['change']);
+
 const filed_names = reactive({ label: 'name', value: 'id', options: 'children' });
 
 const data = reactive({
@@ -143,6 +145,8 @@ function change(ids, selected_types) {
             }
         }
     }
+
+    emit('change', data.value);
 }
 
 function search(value) {
