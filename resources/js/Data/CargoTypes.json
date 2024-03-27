@@ -1,0 +1,986 @@
+[
+    {
+        "dictionary_item_id": 1,
+        "attributes_dictionary": {
+            "cargo_name": "Автошины",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 2,
+        "attributes_dictionary": {
+            "cargo_name": "Алкогольные напитки",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 3,
+        "attributes_dictionary": {
+            "cargo_name": "Безалкогольные напитки",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 4,
+        "attributes_dictionary": {
+            "cargo_name": "Бумага",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 5,
+        "attributes_dictionary": {
+            "cargo_name": "Бытовая техника",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 6,
+        "attributes_dictionary": {
+            "cargo_name": "Грибы",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 7,
+        "attributes_dictionary": {
+            "cargo_name": "Древесина",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 8,
+        "attributes_dictionary": {
+            "cargo_name": "Древесный уголь",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 9,
+        "attributes_dictionary": {
+            "cargo_name": "Зерно и семена (в упаковке)",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 10,
+        "attributes_dictionary": {
+            "cargo_name": "Изделия из кожи",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 11,
+        "attributes_dictionary": {
+            "cargo_name": "Изделия из металла",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 13,
+        "attributes_dictionary": {
+            "cargo_name": "Канц. товары",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 14,
+        "attributes_dictionary": {
+            "cargo_name": "Ковры",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 15,
+        "attributes_dictionary": {
+            "cargo_name": "Компьютеры",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 16,
+        "attributes_dictionary": {
+            "cargo_name": "Консервы",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 17,
+        "attributes_dictionary": {
+            "cargo_name": "40' контейнер",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 18,
+        "attributes_dictionary": {
+            "cargo_name": "Макулатура",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 19,
+        "attributes_dictionary": {
+            "cargo_name": "Мебель",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 20,
+        "attributes_dictionary": {
+            "cargo_name": "Медикаменты",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 21,
+        "attributes_dictionary": {
+            "cargo_name": "Металл",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 22,
+        "attributes_dictionary": {
+            "cargo_name": "Металлолом",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 23,
+        "attributes_dictionary": {
+            "cargo_name": "Молоко сухое",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 24,
+        "attributes_dictionary": {
+            "cargo_name": "Мороженое",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 25,
+        "attributes_dictionary": {
+            "cargo_name": "Мясо",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 26,
+        "attributes_dictionary": {
+            "cargo_name": "Нефтепродукты",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 27,
+        "attributes_dictionary": {
+            "cargo_name": "Оборудование и запчасти",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 28,
+        "attributes_dictionary": {
+            "cargo_name": "Обувь",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 29,
+        "attributes_dictionary": {
+            "cargo_name": "Овощи",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 30,
+        "attributes_dictionary": {
+            "cargo_name": "Одежда",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 31,
+        "attributes_dictionary": {
+            "cargo_name": "Парфюмерия и косметика",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 32,
+        "attributes_dictionary": {
+            "cargo_name": "Пиво",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 33,
+        "attributes_dictionary": {
+            "cargo_name": "Пластик",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 34,
+        "attributes_dictionary": {
+            "cargo_name": "Продукты питания",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 35,
+        "attributes_dictionary": {
+            "cargo_name": "Птица ",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 36,
+        "attributes_dictionary": {
+            "cargo_name": "Изделия из резины",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 37,
+        "attributes_dictionary": {
+            "cargo_name": "Рыба (неживая)",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 38,
+        "attributes_dictionary": {
+            "cargo_name": "Сантехника",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 39,
+        "attributes_dictionary": {
+            "cargo_name": "Сахар",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 40,
+        "attributes_dictionary": {
+            "cargo_name": "Сборный груз",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 41,
+        "attributes_dictionary": {
+            "cargo_name": "Стекло и фарфор",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 42,
+        "attributes_dictionary": {
+            "cargo_name": "Стройматериалы",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 43,
+        "attributes_dictionary": {
+            "cargo_name": "Табачные изделия",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 44,
+        "attributes_dictionary": {
+            "cargo_name": "Тара и упаковка",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 45,
+        "attributes_dictionary": {
+            "cargo_name": "Текстиль",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 46,
+        "attributes_dictionary": {
+            "cargo_name": "ТНП",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 47,
+        "attributes_dictionary": {
+            "cargo_name": "Торф",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 50,
+        "attributes_dictionary": {
+            "cargo_name": "Транспортные средства",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 51,
+        "attributes_dictionary": {
+            "cargo_name": "Удобрения",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 52,
+        "attributes_dictionary": {
+            "cargo_name": "Фрукты",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 53,
+        "attributes_dictionary": {
+            "cargo_name": "Хим. продукты опасные",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 54,
+        "attributes_dictionary": {
+            "cargo_name": "Хим. продукты неопасные",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 55,
+        "attributes_dictionary": {
+            "cargo_name": "Хозтовары",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 56,
+        "attributes_dictionary": {
+            "cargo_name": "Шкуры мокросоленые",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 57,
+        "attributes_dictionary": {
+            "cargo_name": "Электроника",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 58,
+        "attributes_dictionary": {
+            "cargo_name": "Ягоды",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 59,
+        "attributes_dictionary": {
+            "cargo_name": "Другой",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 60,
+        "attributes_dictionary": {
+            "cargo_name": "ДСП",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 61,
+        "attributes_dictionary": {
+            "cargo_name": "Утеплитель",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 62,
+        "attributes_dictionary": {
+            "cargo_name": "Кирпич",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 63,
+        "attributes_dictionary": {
+            "cargo_name": "Трубы",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 64,
+        "attributes_dictionary": {
+            "cargo_name": "ЛДСП",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 65,
+        "attributes_dictionary": {
+            "cargo_name": "Фанера",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 66,
+        "attributes_dictionary": {
+            "cargo_name": "Минвата",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 67,
+        "attributes_dictionary": {
+            "cargo_name": "Пенопласт",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 68,
+        "attributes_dictionary": {
+            "cargo_name": "Гофрокартон",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 69,
+        "attributes_dictionary": {
+            "cargo_name": "Напитки",
+            "insurance_view": "0",
+            "add_load_view": "0"
+        }
+    },
+    {
+        "dictionary_item_id": 70,
+        "attributes_dictionary": {
+            "cargo_name": "Стеклотара (бутылки и др.)",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 71,
+        "attributes_dictionary": {
+            "cargo_name": "Мука",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 73,
+        "attributes_dictionary": {
+            "cargo_name": "Поддоны",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 74,
+        "attributes_dictionary": {
+            "cargo_name": "Чипсы",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 75,
+        "attributes_dictionary": {
+            "cargo_name": "Соки",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 76,
+        "attributes_dictionary": {
+            "cargo_name": "Цемент",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 77,
+        "attributes_dictionary": {
+            "cargo_name": "Кондитерские изделия",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 78,
+        "attributes_dictionary": {
+            "cargo_name": "Кабель",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 79,
+        "attributes_dictionary": {
+            "cargo_name": "Холодильное оборудование",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 80,
+        "attributes_dictionary": {
+            "cargo_name": "Доски",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 81,
+        "attributes_dictionary": {
+            "cargo_name": "Пиломатериалы",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 82,
+        "attributes_dictionary": {
+            "cargo_name": "Бытовая химия",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 83,
+        "attributes_dictionary": {
+            "cargo_name": "ДВП",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 84,
+        "attributes_dictionary": {
+            "cargo_name": "20' контейнер",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 85,
+        "attributes_dictionary": {
+            "cargo_name": "Крупа",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 86,
+        "attributes_dictionary": {
+            "cargo_name": "Металлопрокат",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 87,
+        "attributes_dictionary": {
+            "cargo_name": "Вагонка",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 88,
+        "attributes_dictionary": {
+            "cargo_name": "Ферросплавы",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 89,
+        "attributes_dictionary": {
+            "cargo_name": "Кормовые/пищевые добавки",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 90,
+        "attributes_dictionary": {
+            "cargo_name": "Игрушки",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 91,
+        "attributes_dictionary": {
+            "cargo_name": "Оборудование медицинское",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 92,
+        "attributes_dictionary": {
+            "cargo_name": "Зерно и семена (насыпью)",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 93,
+        "attributes_dictionary": {
+            "cargo_name": "Цветы",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 94,
+        "attributes_dictionary": {
+            "cargo_name": "Шпалы",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 95,
+        "attributes_dictionary": {
+            "cargo_name": "ЖБИ",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 96,
+        "attributes_dictionary": {
+            "cargo_name": "Гипс",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 97,
+        "attributes_dictionary": {
+            "cargo_name": "Газосиликатные блоки",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 98,
+        "attributes_dictionary": {
+            "cargo_name": "Арматура",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 100,
+        "attributes_dictionary": {
+            "cargo_name": "Сэндвич-панели",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 101,
+        "attributes_dictionary": {
+            "cargo_name": "Двери",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 102,
+        "attributes_dictionary": {
+            "cargo_name": "Домашний переезд",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 103,
+        "attributes_dictionary": {
+            "cargo_name": "Огнеупорная продукция",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 105,
+        "attributes_dictionary": {
+            "cargo_name": "Инструмент",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 106,
+        "attributes_dictionary": {
+            "cargo_name": "Люди",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 107,
+        "attributes_dictionary": {
+            "cargo_name": "Соль",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 108,
+        "attributes_dictionary": {
+            "cargo_name": "Мел",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 109,
+        "attributes_dictionary": {
+            "cargo_name": "Песок",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 110,
+        "attributes_dictionary": {
+            "cargo_name": "Щебень",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 111,
+        "attributes_dictionary": {
+            "cargo_name": "Автомобиль(ли)",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 112,
+        "attributes_dictionary": {
+            "cargo_name": "Балки надрессорные",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 113,
+        "attributes_dictionary": {
+            "cargo_name": "Ж/д запчасти (прочие)",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 114,
+        "attributes_dictionary": {
+            "cargo_name": "Боковая рама",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 206,
+        "attributes_dictionary": {
+            "cargo_name": "Профлист",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 207,
+        "attributes_dictionary": {
+            "cargo_name": "20' танк-контейнер",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 208,
+        "attributes_dictionary": {
+            "cargo_name": "40' танк-контейнер",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 209,
+        "attributes_dictionary": {
+            "cargo_name": "Колесная пара",
+            "insurance_view": "1",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 210,
+        "attributes_dictionary": {
+            "cargo_name": "СОНК (КП)",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 211,
+        "attributes_dictionary": {
+            "cargo_name": "Поглощающий аппарат",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 212,
+        "attributes_dictionary": {
+            "cargo_name": "20' контейнер HC",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 213,
+        "attributes_dictionary": {
+            "cargo_name": "40' контейнер HC",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 214,
+        "attributes_dictionary": {
+            "cargo_name": "45' контейнер (стар.)",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 215,
+        "attributes_dictionary": {
+            "cargo_name": "45' контейнер (нов.)",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 216,
+        "attributes_dictionary": {
+            "cargo_name": "20' реф.контейнер",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 217,
+        "attributes_dictionary": {
+            "cargo_name": "40' реф.контейнер",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 218,
+        "attributes_dictionary": {
+            "cargo_name": "45' реф.контейнер",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 219,
+        "attributes_dictionary": {
+            "cargo_name": "Животные",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    },
+    {
+        "dictionary_item_id": 220,
+        "attributes_dictionary": {
+            "cargo_name": "40' реф.контейнер HC",
+            "insurance_view": "0",
+            "add_load_view": "1"
+        }
+    }
+]

@@ -3,7 +3,18 @@ import {ref} from "vue";
 import dayjs from "dayjs";
 import ru_RU from "ant-design-vue/es/date-picker/locale/ru_RU";
 import car_types from "@/Data/CarTypes.json";
-import {car_types_data_transform, car_types_parents} from "@/DataTransform/DataTransform.js";
+import pay_types from "@/Data/PayTypes.json";
+import cargo_types from "@/Data/CargoTypes.json";
+import loading_types from "@/Data/LoadingTypes.json";
+import extra_types from "@/Data/ExtraTypes.json";
+import currency_types from "@/Data/CurrencyTypes.json";
+import {
+    car_types_data_transform,
+    car_types_parents,
+    cargo_types_data_transform, currency_types_data_transform, extra_types_data_transform, loading_types_data_transform,
+    pay_types_data_transform,
+    pay_types_settings
+} from "@/DataTransform/DataTransform.js";
 import MultiSelect from "@/Pages/Loads/Partials/MultiSelect.vue";
 
 const enabled = ref(null);
@@ -40,27 +51,32 @@ const handleSearch = val => {
 };
 
 const options_car_type = ref(car_types_data_transform(car_types));
+const options_pay_type = ref(pay_types_data_transform(pay_types));
+const options_cargo_type = ref(cargo_types_data_transform(cargo_types));
+const options_loading_type = ref(loading_types_data_transform(loading_types));
+const options_extra_type = ref(extra_types_data_transform(extra_types));
+const options_currency_type = ref(currency_types_data_transform(currency_types));
 
 const value_cargo_type = ref('lucy');
-const options_cargo_type = ref([
-    {
-        id: 'jack',
-        name: 'Jack',
-    },
-    {
-        id: 'lucy',
-        name: 'Lucy',
-    },
-    {
-        id: 'disabled',
-        name: 'Disabled',
-        disabled: true,
-    },
-    {
-        id: 'yiminghe',
-        name: 'Yiminghe',
-    },
-]);
+// const options_cargo_type = ref([
+//     {
+//         id: 'jack',
+//         name: 'Jack',
+//     },
+//     {
+//         id: 'lucy',
+//         name: 'Lucy',
+//     },
+//     {
+//         id: 'disabled',
+//         name: 'Disabled',
+//         disabled: true,
+//     },
+//     {
+//         id: 'yiminghe',
+//         name: 'Yiminghe',
+//     },
+// ]);
 
 const value_load_type = ref('lucy');
 const options_load_type = ref([
@@ -276,45 +292,21 @@ const options_load_type = ref([
                 <a-col :xs="24" :sm="24" :md="4" :lg="4" :xl="4">
                     <a-form layout="vertical">
                         <a-form-item label="Наименование груза">
-                            <a-select
-                                ref="select"
-                                v-model:value="value_cargo_type"
-                                :options="options_cargo_type"
-                                :field-names="{ label: 'name', value: 'id', options: 'children' }"
-                                @focus="focus"
-                                @change="handleChange"
-                                mode="multiple"
-                            ></a-select>
+                            <MultiSelect :options="options_cargo_type" placeholder="Наименование груза"/>
                         </a-form-item>
                     </a-form>
                 </a-col>
                 <a-col :xs="24" :sm="24" :md="4" :lg="4" :xl="4">
                     <a-form layout="vertical">
                         <a-form-item label="Тип загрузки">
-                            <a-select
-                                ref="select"
-                                v-model:value="value_load_type"
-                                :options="options_load_type"
-                                :field-names="{ label: 'name', value: 'id', options: 'children' }"
-                                @focus="focus"
-                                @change="handleChange"
-                                mode="multiple"
-                            ></a-select>
+                            <MultiSelect :options="options_loading_type" placeholder="Тип загрузки"/>
                         </a-form-item>
                     </a-form>
                 </a-col>
                 <a-col :xs="24" :sm="24" :md="4" :lg="4" :xl="4">
                     <a-form layout="vertical">
                         <a-form-item label="Оплата">
-                            <a-select
-                                ref="select"
-                                v-model:value="value_load_type"
-                                :options="options_load_type"
-                                :field-names="{ label: 'name', value: 'id', options: 'children' }"
-                                @focus="focus"
-                                @change="handleChange"
-                                mode="multiple"
-                            ></a-select>
+                            <MultiSelect :options="options_pay_type" :setting_options="pay_types_settings" placeholder="Оплата"/>
                         </a-form-item>
                         <a-form-item>
                             <a-input-number placeholder="от" style="width: 100%;"/>
@@ -323,14 +315,8 @@ const options_load_type = ref([
                             <a-select
                                 ref="select"
                                 v-model:value="value1"
-                                @focus="focus"
-                                @change="handleChange"
-                                placeholder="Выбрать список"
                             >
-                                <a-select-option value="jack">Jack</a-select-option>
-                                <a-select-option value="lucy">Lucy</a-select-option>
-                                <a-select-option value="disabled" disabled>Disabled</a-select-option>
-                                <a-select-option value="Yiminghe">yiminghe</a-select-option>
+                                <a-select-option v-for="option_currency of options_currency_type" :value="option_currency.id">{{ option_currency.name }}</a-select-option>
                             </a-select>
                         </a-form-item>
                     </a-form>
@@ -338,15 +324,7 @@ const options_load_type = ref([
                 <a-col :xs="24" :sm="24" :md="4" :lg="4" :xl="4">
                     <a-form layout="vertical">
                         <a-form-item label="Доп параметры">
-                            <a-select
-                                ref="select"
-                                v-model:value="value_load_type"
-                                :options="options_load_type"
-                                :field-names="{ label: 'name', value: 'id', options: 'children' }"
-                                @focus="focus"
-                                @change="handleChange"
-                                mode="multiple"
-                            ></a-select>
+                            <MultiSelect :options="options_extra_type" placeholder="Доп параметры"/>
                         </a-form-item>
                     </a-form>
                 </a-col>

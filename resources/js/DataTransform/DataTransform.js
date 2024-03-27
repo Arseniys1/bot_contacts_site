@@ -32,7 +32,41 @@ const car_types_parents = [
 ];
 
 
-function create_dict_item(id, name, parent = false, children = null, fields = null) {
+const pay_types_settings = [
+    {
+        id: "cash",
+        name: "За наличную оплату",
+        together_ids: ["withRate"],
+    },
+    {
+        id: "rateWithNDS",
+        name: "Оплата б/н с НДС",
+        together_ids: ["withRate"],
+    },
+    {
+        id: "rateWithoutNDS",
+        name: "Оплата б/н без НДС",
+        together_ids: ["withRate"],
+    }
+];
+
+
+const currency_types_only = [
+    1, 12, 8, 19,
+    5, 15, 10,
+    2, 9,
+    3, 11,
+    21, 24,
+    23,
+    26, 28,
+    29, 31,
+    32, 34,
+    36, 37,
+    39,
+];
+
+
+function create_dict_item(id, name, parent = false, children = null, fields = null, together = null) {
     let dict_item = {
         id: id,
         name: name,
@@ -41,12 +75,13 @@ function create_dict_item(id, name, parent = false, children = null, fields = nu
 
     if (children) dict_item = {...dict_item, children: children};
     if (fields) dict_item = {...dict_item, fields: fields};
+    if (together) dict_item = {...dict_item, together: together};
 
     return dict_item;
 }
 
 
-function data_transform(dict_items, dict_items_parents, name_key) {
+function data_transform(dict_items, dict_items_parents, settings, only, name_key) {
     let new_dict_items = [];
     let skip_dict_item_ids = [];
     let skip_after_item_ids = [];
@@ -85,6 +120,24 @@ function data_transform(dict_items, dict_items_parents, name_key) {
         }
     }
 
+    for (let setting of settings) {
+        new_dict_items.push(create_dict_item(setting.id, setting.name, false, null, null, setting.together_ids))
+        skip_dict_item_ids.push(setting.id);
+    }
+
+    if (only && only.length > 0) {
+        for (let only_id of only) {
+            for (let dict_item of dict_items) {
+                if (dict_item.dictionary_item_id === only_id) {
+                    new_dict_items.push(create_dict_item(dict_item.dictionary_item_id, dict_item.attributes_dictionary[name_key], false, null, null, null));
+                    skip_dict_item_ids.push(dict_item.id);
+                }
+            }
+        }
+
+        return new_dict_items;
+    }
+
     for (let dict_item of dict_items) {
         if (!skip_dict_item_ids.includes(dict_item.dictionary_item_id) && !skip_after_item_ids.includes(dict_item.dictionary_item_id))
             new_dict_items.push(create_dict_item(dict_item.dictionary_item_id, dict_item.attributes_dictionary[name_key]));
@@ -95,7 +148,32 @@ function data_transform(dict_items, dict_items_parents, name_key) {
 
 
 function car_types_data_transform(dict_items) {
-    return data_transform(dict_items, car_types_parents, "car_type");
+    return data_transform(dict_items, car_types_parents, [], [],"car_type");
+}
+
+
+function pay_types_data_transform(dict_items) {
+    return data_transform(dict_items, [], pay_types_settings, [], "name");
+}
+
+
+function cargo_types_data_transform(dict_items) {
+    return data_transform(dict_items, [], [], [], "cargo_name");
+}
+
+
+function loading_types_data_transform(dict_items) {
+    return data_transform(dict_items, [], [], [], "name");
+}
+
+
+function extra_types_data_transform(dict_items) {
+    return data_transform(dict_items, [], [], [], "name");
+}
+
+
+function currency_types_data_transform(dict_items) {
+    return data_transform(dict_items, [], [], currency_types_only, "curr_name");
 }
 
 
@@ -110,5 +188,12 @@ export {
     car_types_data_transform,
     car_types_parents,
     create_dict_item,
-    get_transformed_dict_item_by_id
+    get_transformed_dict_item_by_id,
+    pay_types_data_transform,
+    pay_types_settings,
+    cargo_types_data_transform,
+    loading_types_data_transform,
+    extra_types_data_transform,
+    currency_types_data_transform,
+    currency_types_only
 };

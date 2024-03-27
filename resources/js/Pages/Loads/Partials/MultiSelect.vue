@@ -11,6 +11,10 @@ const props = defineProps({
         type: Array,
         default: [],
     },
+    setting_options: {
+        type: Array,
+        default: [],
+    },
     placeholder: {
         type: String,
         default: null,
@@ -115,6 +119,8 @@ function change(ids, selected_types) {
             }
         }
     }
+
+
 }
 
 function search(value) {

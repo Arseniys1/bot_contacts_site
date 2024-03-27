@@ -1,0 +1,38 @@
+[
+    {
+        "dictionary_item_id": "withPrepayment",
+        "attributes_dictionary": {
+            "name": "С предоплатой"
+        }
+    },
+    {
+        "dictionary_item_id": "withoutRate",
+        "attributes_dictionary": {
+            "name": "Без ставки"
+        }
+    },
+    {
+        "dictionary_item_id": "cash",
+        "attributes_dictionary": {
+            "name": "За наличную оплату"
+        }
+    },
+    {
+        "dictionary_item_id": "rateWithNDS",
+        "attributes_dictionary": {
+            "name": "Оплата б/н с НДС"
+        }
+    },
+    {
+        "dictionary_item_id": "rateWithoutNDS",
+        "attributes_dictionary": {
+            "name": "Оплата б/н без НДС"
+        }
+    },
+    {
+        "dictionary_item_id": "withRate",
+        "attributes_dictionary": {
+            "name": "Со ставкой"
+        }
+    }
+]

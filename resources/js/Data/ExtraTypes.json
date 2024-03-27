@@ -1,0 +1,32 @@
+[
+    {
+        "dictionary_item_id": "withKoniki",
+        "attributes_dictionary": {
+            "name": "С кониками"
+        }
+    },
+    {
+        "dictionary_item_id": "adr",
+        "attributes_dictionary": {
+            "name": "Опасные грузы (ADR)"
+        }
+    },
+    {
+        "dictionary_item_id": "roundTrip",
+        "attributes_dictionary": {
+            "name": "Только кругорейс"
+        }
+    },
+    {
+        "dictionary_item_id": "permanent",
+        "attributes_dictionary": {
+            "name": "Скрыть «постоянные»"
+        }
+    },
+    {
+        "dictionary_item_id": "tenders",
+        "attributes_dictionary": {
+            "name": "Скрыть тендеры"
+        }
+    }
+]
