@@ -1,6 +1,6 @@
 <script setup>
 import {reactive} from "vue";
-import {get_transformed_dict_item_by_id} from "@/DataTransform/DataTransform.js";
+import {get_transformed_dict_item_by_id, together_ids} from "@/DataTransform/DataTransform.js";
 
 const props = defineProps({
     options: {
@@ -28,6 +28,7 @@ const data = reactive({
     value: [],
     selected_parent_types: [],
     search: false,
+    selected_together_ids: [],
 });
 
 function change(ids, selected_types) {
@@ -120,7 +121,28 @@ function change(ids, selected_types) {
         }
     }
 
+    for (let settings_option of props.setting_options) {
+        if (data.value.includes(settings_option.id)) {
+            for (let together_id of settings_option.together_ids) {
+                if (!data.value.includes(together_id) && !data.selected_together_ids.includes(together_id)) {
+                    data.value.push(together_id);
+                    data.selected_together_ids.push(together_id);
+                }
+            }
+        }
+    }
 
+    for (let together_id of together_ids) {
+        for (let settings_option of props.setting_options) {
+            if (settings_option.together_ids.includes(together_id) && !data.value.includes(together_id)) {
+                let idx = data.value.indexOf(settings_option.id);
+                if (idx !== -1) {
+                    data.value.splice(idx, 1);
+                    data.selected_together_ids.splice(data.selected_together_ids.indexOf(together_id), 1);
+                }
+            }
+        }
+    }
 }
 
 function search(value) {

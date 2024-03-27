@@ -66,11 +66,24 @@ const currency_types_only = [
 ];
 
 
+const together_ids = [];
+
+
+for (let setting of [...pay_types_settings]) {
+    for (let together_id of setting.together_ids) {
+        if (!together_ids.includes(together_id)) {
+            together_ids.push(together_id);
+        }
+    }
+}
+
+
 function create_dict_item(id, name, parent = false, children = null, fields = null, together = null) {
     let dict_item = {
         id: id,
         name: name,
         parent: parent,
+        is_together: !!(together && together.length > 0),
     };
 
     if (children) dict_item = {...dict_item, children: children};
@@ -195,5 +208,6 @@ export {
     loading_types_data_transform,
     extra_types_data_transform,
     currency_types_data_transform,
-    currency_types_only
+    currency_types_only,
+    together_ids,
 };
